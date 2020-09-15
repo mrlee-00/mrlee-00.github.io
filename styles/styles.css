@@ -31,23 +31,19 @@ p {
 
 .header .header_opciones {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .header .header_logo {
   width: 2rem;
   height: 2rem;
   margin: .5rem;
-}
-
-.header .checkbtn {
-  float: right;
-  width: 2rem;
-  height: 2rem;
-  margin-top: 1rem;
-}
-
-.header #check {
-  display: none;
+  position: absolute;
 }
 
 .header .header_hamburguesa {
@@ -64,6 +60,8 @@ p {
   list-style-type: none;
   padding: 0;
   display: none;
+  min-width: 100%;
+  margin-top: 3rem;
 }
 
 .header .header_hamburguesa li {
@@ -80,8 +78,94 @@ p {
   font-family: 'IBM Plex Mono', monospace;
 }
 
-.header #check:checked ~ .header_hamburguesa {
+.header #button:checked ~ .header_hamburguesa {
   display: block;
+  visibility: visible;
+}
+
+#button:checked {
+  float: right;
+}
+
+.boton_y_lista {
+  width: 100%;
+  float: right;
+}
+
+.boton {
+  display: none;
+  visibility: none;
+}
+
+.bar {
+  position: relative;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 1rem;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+  float: right;
+}
+
+.bar .middle {
+  height: 2px;
+  width: 18px;
+  background: black;
+  border-radius: 50px;
+  position: absolute;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.bar .top {
+  bottom: 5px;
+  height: 2px;
+  width: 18px;
+  background: black;
+  border-radius: 50px;
+  position: absolute;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.bar .bottom {
+  top: 9px;
+  height: 2px;
+  width: 18px;
+  background: black;
+  border-radius: 50px;
+  position: absolute;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.boton:checked ~ .bar .top {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  width: 18px;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  top: -6.3px;
+}
+
+.boton:checked ~ .bar .bottom {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  width: 18px;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  top: 6.3px;
+}
+
+.boton:checked ~ .bar .middle {
+  -webkit-transform: translateX(20deg);
+          transform: translateX(20deg);
+  opacity: 0;
 }
 
 .main {
@@ -128,12 +212,14 @@ p {
 }
 
 .spotify {
+  margin: 0;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#0000FF), to(#0000A3));
   background-image: linear-gradient(#0000FF, #0000A3);
   -webkit-transform: skewY(-6deg);
           transform: skewY(-6deg);
   -webkit-transform-origin: top left;
           transform-origin: top left;
+  width: 100%;
 }
 
 .spotify .spotify_fondo {
@@ -155,8 +241,14 @@ p {
   display: grid;
   -ms-grid-rows: 4fr;
       grid-template-rows: 4fr;
-  margin: 1rem;
-  grid-row-gap: .5rem;
+  margin: .5rem;
+}
+
+.spotify .spotify_podcasts iframe {
+  height: 16.06rem;
+  width: 100%;
+  border: none;
+  margin: none;
 }
 
 .origenes {
@@ -219,7 +311,7 @@ p {
 .temas .temas_articulo .temas_articulo_puntos .temas_articulo_puntos_texto {
   text-align: center;
   font-size: 1.4rem;
-  font-weight: 1000;
+  font-weight: 900;
 }
 
 .novedades {
@@ -289,7 +381,7 @@ p {
 }
 
 .footer {
-  height: 10rem;
+  height: 8rem;
   background-color: white;
   z-index: 2;
   display: -webkit-box;
@@ -305,6 +397,7 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
 }
 
 .footer .footer_texto {
@@ -322,7 +415,7 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 1rem;
+  margin: .5rem;
   background-color: transparent;
   text-decoration: none;
 }
@@ -334,27 +427,72 @@ p {
 }
 
 @media screen and (min-width: 768px) {
+  .header {
+    width: 100%;
+  }
+  .header .header_logo {
+    position: static;
+  }
+  .header .boton_y_lista {
+    margin: -2rem 0 0 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    float: right;
+  }
   .header .header_opciones {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    float: right;
   }
-  .header .header_opciones .checkbtn {
+  .header .header_opciones .boton {
+    display: none;
+  }
+  .header .header_opciones .bar {
     display: none;
   }
   .header .header_opciones .header_hamburguesa {
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    float: right;
   }
   .header .header_opciones .header_hamburguesa li {
     padding: 0;
-    display: inline;
-    background-color: white;
-    margin-right: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: transparent;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    margin: 0;
+    max-width: 10rem;
   }
   .header .header_opciones .header_hamburguesa li a {
+    padding: 0;
     color: #060A24;
     margin: 0 2rem 0;
   }
@@ -393,6 +531,7 @@ p {
     margin-left: 10rem;
   }
   .spotify .spotify_fondo .spotify_lista {
+    border: none;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 1fr;
@@ -401,6 +540,13 @@ p {
         grid-template-rows: 1fr 1fr;
     grid-column-gap: 4rem;
     grid-row-gap: 4rem;
+  }
+  .spotify .spotify_fondo .spotify_lista .spotify_podcasts {
+    border: none;
+  }
+  .spotify .spotify_fondo .spotify_lista .spotify_podcasts iframe {
+    height: 14.5rem;
+    border: none;
   }
   .origenes {
     margin-top: -8rem;
@@ -486,6 +632,10 @@ p {
     -webkit-clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
             clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
   }
+  .novedades .novedades_contenedor .novedades_boton {
+    width: 21.2rem;
+    padding: 1rem;
+  }
   .footer {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -498,6 +648,7 @@ p {
         -ms-flex-pack: justify;
             justify-content: space-between;
     z-index: 3;
+    height: 6rem;
   }
   .footer .footer_texto {
     margin-left: 3rem;

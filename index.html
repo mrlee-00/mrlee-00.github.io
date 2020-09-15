@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@500&display=swap" rel="stylesheet">
+    <title>Document</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/styles.css">
-    <title>Document</title>
 </head>
 <body>
     <header class="header">
         <nav class="header_opciones">
-            <img src="./images/logo.svg" class="header_logo" alt="Logo1">
-            <input type="checkbox" id="check">
-            <label for="check" class="checkbtn">
-                <i class="fas fa-bars"></i>
+            <img src="/images/logo.svg" class="header_logo" alt="Logo1">
+            <label for="button" class="boton_y_lista">
+                <input type="checkbox" class="boton" id="button">
+                <div class="bar">
+                    <span class="top"></span>
+                    <span class="middle"></span>
+                    <span class="bottom"></span>
+                </div>
+                <ul class="header_hamburguesa">
+                    <li><a href="#episodios">EPISODIOS </a></li>
+                    <li><a href="#nosotros">NOSOTROS </a></li>
+                    <li><a href="#entrevistas">ENTREVISTAS </a></li>
+                    <li><a href="#topicos">TOPICOS </a></li>
+                </ul>
             </label>
-            <ul class="header_hamburguesa">
-                <li><a href="#episodios">EPISODIOS </a></li>
-                <li><a href="#nosotros">NOSOTROS </a></li>
-                <li><a href="#entrevistas">ENTREVISTAS </a></li>
-                <li><a href="#topicos">TOPICOS </a></li>
-            </ul>
         </nav>
     </header>
     <main class="main">
@@ -43,16 +46,16 @@
             <h2 class="spotify_titulo">Episodios</h2>
             <article class="spotify_lista">
                 <div class="spotify_podcasts">
-                    <iframe src="https://open.spotify.com/embed-podcast/episode/6eCHJ8yOYtksW8OT93Dbdu" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                    <iframe src="https://open.spotify.com/embed-podcast/episode/6eCHJ8yOYtksW8OT93Dbdu" allow="encrypted-media"></iframe>
                 </div>
                 <div class="spotify_podcasts">
-                    <iframe src="https://open.spotify.com/embed-podcast/episode/1ezdL2ivAGLwSE6Xbssxqt" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                    <iframe src="https://open.spotify.com/embed-podcast/episode/1ezdL2ivAGLwSE6Xbssxqt" allow="encrypted-media"></iframe>
                 </div>
                 <div class="spotify_podcasts">
-                    <iframe src="https://open.spotify.com/embed-podcast/episode/3cWta1iiQSfvrdHaCbLkSD" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                    <iframe src="https://open.spotify.com/embed-podcast/episode/3cWta1iiQSfvrdHaCbLkSD" allow="encrypted-media"></iframe>
                 </div>
                 <div class="spotify_podcasts">
-                    <iframe src="https://open.spotify.com/embed-podcast/episode/31VyAQAwBiKoHVoYUCEzjQ" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                    <iframe src="https://open.spotify.com/embed-podcast/episode/31VyAQAwBiKoHVoYUCEzjQ" allow="encrypted-media"></iframe>
                 </div>
             </article>
         </div>
@@ -130,4 +133,5 @@
             <li class="footer_lista_elemento"><a class="footer_lista_link" href="#"><i class="fab fa-telegram"></i></a></li>
         </ul>
     </footer>
+</body>
 </html>
