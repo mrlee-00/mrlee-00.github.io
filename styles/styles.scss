@@ -21,14 +21,20 @@ p{
     align-items: baseline;
     .header_opciones{
         width: 100%;
-        display: flex;
-        justify-content: space-between;
     }
     .header_logo{
         width: 2rem;
         height: 2rem;
         margin: .5rem;
-        position: absolute;
+    }
+    .checkbtn{
+        float: right;
+        width: 2rem;
+        height: 2rem;
+        margin-top: 1rem;
+    } 
+    #check{
+        display: none;
     }
     .header_hamburguesa{
         display: flex;
@@ -37,8 +43,6 @@ p{
         list-style-type: none;
         padding: 0;
         display: none;
-        min-width: 100%;
-        margin-top: 3rem;
         li{
             box-sizing: border-box;
             padding: 2rem;
@@ -50,80 +54,10 @@ p{
                 font-family: 'IBM Plex Mono', monospace;
             }
         }
-
-    }
-
-       
-    #button:checked ~ .header_hamburguesa{
+    }   
+    #check:checked ~ .header_hamburguesa{
         display: block;
-        visibility: visible;
     }
-
-}
-#button:checked{
-    float: right;
-}
-.boton_y_lista{
-    width: 100%;
-    float: right;
-}
-
-.boton {
-    display: none;
-    visibility: none;
-}
-.bar{
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-right: 2rem;
-    margin-bottom: 1rem;
-    float: right;
-
-}
-.bar .middle{
-    height: 2px;
-    width: 18px;
-    background: black;
-    border-radius: 50px;
-    position: absolute;
-    transition: 0.3s ease;
-}
-.bar .top{
-    bottom: 5px;
-    height: 2px;
-    width: 18px;
-    background: black;
-    border-radius: 50px;
-    position: absolute;
-    transition: 0.3s ease;
-}
-.bar .bottom{
-    top: 9px;
-    height: 2px;
-    width: 18px;
-    background: black;
-    border-radius: 50px;
-    position: absolute;
-    transition: 0.3s ease;
-}
-.boton:checked ~ .bar .top  {
-    transform: rotate(-45deg);
-    width: 18px;
-    transform-origin: right;
-    top: -6.3px;
-}
-.boton:checked ~ .bar .bottom  {
-    transform: rotate(45deg);
-    width: 18px;
-    transform-origin: right;
-    top: 6.3px;
-}
-.boton:checked ~ .bar .middle  {
-    transform: translateX(20deg);
-    opacity: 0;
 }
 .main{
     margin: 1rem;
@@ -157,10 +91,10 @@ p{
     }
 }
 .spotify{
-    margin: 0;
     background-image: linear-gradient(#0000FF, #0000A3);
     transform: skewY(-6deg);
     transform-origin: top left;
+    margin: 0;
     width: 100%;
     .spotify_fondo{
         transform: skewY(6deg);
@@ -176,14 +110,13 @@ p{
         display: grid;
         grid-template-rows: 4fr;
         margin: .5rem;
-
+        grid-row-gap: .1rem;
     }
     .spotify_podcasts{
         iframe{
             height: 16.06rem;
             width: 100%;
             border: none;
-            margin: none;
         }
     }
 }
@@ -285,7 +218,6 @@ p{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
     .footer_texto{
         font-weight: normal;
     }
@@ -310,43 +242,23 @@ p{
 }
 @media screen and (min-width: 768px){
     .header{
-        width: 100%;
-        .header_logo{
-            position: static;
-        }
-        .boton_y_lista{
-            margin: -2rem 0 0 0;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            float: right;
-        }
         .header_opciones{
             display: flex;
-            flex-wrap: nowrap;
             justify-content: space-between;
-            float: right;
-            .boton{
-                display: none;
+            .header_logo{
+                margin-left: 3rem;
             }
-            .bar{
+            .checkbtn{
                 display: none;
             }
             .header_hamburguesa{
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-end;
-                flex-wrap: nowrap;
-                float: right;
+                display: block;
                 li{
                     padding: 0;
-                    display: flex;
-                    background-color: transparent;
-                    justify-content: flex-end;
-                    margin: 0;
-                    max-width: 10rem;
+                    display: inline;
+                    background-color: white;
+                    margin-right: .4rem;
                     a{
-                        padding: 0;
                         color: #060A24;
                         margin: 0 2rem 0;
                     }
@@ -459,15 +371,15 @@ p{
         }
     }
     .novedades{
+        .novedades_boton{
+            width: 21.2rem;
+            padding: 1rem;
+        }
         .novedades_contenedor{
             display: flex;
             justify-content: center;
             align-items: center;
             clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
-            .novedades_boton{
-                width: 21.2rem;
-                padding: 1rem;
-            }
         }
     }
 
@@ -486,5 +398,4 @@ p{
         }
     }
 }
-
 
